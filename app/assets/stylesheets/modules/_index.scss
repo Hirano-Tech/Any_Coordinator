@@ -1,13 +1,89 @@
 * {
   box-sizing: border-box;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .wrapper {
-  background-color: lightgray;
   width: 100vw;
-  height: 100vh;
   max-width: 1024px;
+  font-family: "Sawarabi Mincho";
+  font-size: 62.5%;
   margin: 0 auto;
-  @media (max-width: 480px) {
+
+  .header {
+    position: relative;
+
+    .title {
+      background-color: lightgreen;
+      width: 100vw;
+      max-width: 1024px;
+      height: 100px;
+      display: flex;
+
+      @media (max-width: 480px) {
+        height: 50px;
+      }
+
+      h1 {
+        width: 100vw;
+        font-size: 2.0rem;
+        text-align: center;
+        line-height: 100px;
+        justify-content: flex-start;
+
+        @media (max-width: 480px) {
+          font-size: 1.2rem;
+          line-height: 50px;
+        }
+      }
+    }
+
+    .sign-btn {
+      position: absolute;
+        right: 0;
+        bottom: 0;
+
+      ul {
+        display: flex;
+      }
+
+      ul li {
+        background-color: #e2e2e2;
+        width: 100px;
+        height: 25px;
+        font-size: 1.0rem;
+        text-align: center;
+        line-height: 25px;
+        cursor: pointer;
+        justify-content: flex-start;
+      }
+    }
   }
 }
+
+
+
+/* ul {
+  display: flex;
+}
+
+ul li {
+  background-color: #e2e2e2;
+  width: 100px;
+  height: 25px;
+  font-size: 1.0rem;
+  text-align: center;
+  line-height: 25px;
+  box-shadow: 0 3px #eeeeee;
+  cursor: pointer;
+  justify-content: flex-start;
+
+  :active {
+    box-shadow: none;
+    position: relative;
+      top: 3px;
+  }
+} */
