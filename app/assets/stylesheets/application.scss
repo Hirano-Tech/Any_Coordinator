@@ -1,0 +1,145 @@
+@import "reset";
+@import "modules/index";
+@import "modules/devise";
+@import "modules/register";
+
+@mixin sign_btn {
+  background-color: #fafafa;
+  width: 125px;
+  height: 30px;
+  color: #000000;
+  font-size: 1.0rem;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 100px;
+  box-shadow: 0 2px #eeeeee;
+  margin-bottom: 5px;
+  &:active {
+    box-shadow: none;
+    position: relative;
+      top: 2px;
+  }
+}
+
+@mixin menu_list {
+  width: 20vw;
+  max-width: calc(1024px / 5);
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 100vw;
+  max-width: 1024px;
+  font-family: "Sawarabi Mincho";
+  font-size: 62.5%;
+  margin: 0 auto;
+  a {text-decoration: none;}
+}
+
+header {
+  position: relative;
+
+  .title {
+    height: 100px;
+    font-size: 2.0rem;
+    text-align: center;
+    line-height: 100px;
+  }
+
+  .sign_btn {
+    position: absolute;
+      right: 20px;
+      bottom: 18px;
+
+    &__user {
+      @include sign_btn;
+      font-size: 100%;
+    }
+
+    &__fa-sign-out-alt {
+      @include sign_btn;
+      .fa-sign-out-alt {
+        margin-right: 5px;
+      }
+    }
+
+    &__fa-user-plus {
+      @include sign_btn;
+      .fa-user-plus {
+        margin-right: 5px;
+      }
+    }
+
+    &__fa-sign-in-alt {
+      @include sign_btn;
+      .fa-sign-in-alt {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.menu {
+  height: 50px;
+  font-size: 1.0rem;
+  display: flex;
+    flex-direction: row;
+  position: relative;
+
+  &__male {
+    @include menu_list;
+    margin-top: 20px;
+    .fa-male {
+      margin-right: 5px;
+    }
+  }
+
+  &__female {
+    @include menu_list;
+    margin-top: 20px;
+    .fa-female {
+      margin-right: 5px;
+    }
+  }
+
+  &__child {
+    @include menu_list;
+    margin-top: 20px;
+    .fa-child {
+      margin-right: 5px;
+    }
+  }
+
+  &__about {
+    @include menu_list;
+    height: 50px;
+    line-height: 50px;
+  }
+
+  &__paper-plane {
+    @include menu_list;
+    height: 50px;
+    line-height: 50px;
+    .fa-paper-plane {
+      margin-right: 5px;
+    }
+  }
+
+  &__title {
+    width: 60vw;
+    max-width: calc((1024px / 5) * 3);
+    height: 20px;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 20px;
+    position: absolute;
+      top: 0;
+      left: 0;
+  }
+}
