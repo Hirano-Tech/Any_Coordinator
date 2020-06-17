@@ -1,0 +1,36 @@
+@mixin LinkColor($color) {
+  color: $color;
+    // Google が使用しているリンク色 "#1a0dab"
+  text-decoration: none;
+
+  &:hover, &:active, &:focus {
+    color: lighten($color, 20%);
+  }
+}
+
+@mixin sign_in-out {
+  background-color: #fafafa;
+  width: 125px;
+  height: 30px;
+  font-size: 1.0rem;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 100px;
+  box-shadow: 0 2px #eeeeee;
+  margin-bottom: 5px;
+
+  &:active {
+    box-shadow: none;
+    position: relative;
+      top: 2px;
+  }
+}
+
+@mixin Coodinate {
+  width: 20vw;
+  max-width: calc(1024px / 5);
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin-top: 20px;
+}

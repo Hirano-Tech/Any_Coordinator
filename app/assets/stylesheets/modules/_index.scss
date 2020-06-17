@@ -1,21 +1,3 @@
-@mixin sign_btn {
-  background-color: #fafafa;
-  width: 125px;
-  height: 30px;
-  color: #000000;
-  font-size: 1.0rem;
-  text-align: center;
-  line-height: 30px;
-  border-radius: 100px;
-  box-shadow: 0 2px #eeeeee;
-  margin-bottom: 5px;
-  &:active {
-    box-shadow: none;
-    position: relative;
-      top: 2px;
-  }
-}
-
 .eye_catch {
   margin-bottom: 30px;
   img {
@@ -38,7 +20,7 @@
   }
 
   .mypage_btn {
-    @include sign_btn;
+    @include sign_in-out;
   }
 }
 

@@ -14,75 +14,75 @@
   </head>
 
   <body>
-    <div class="wrapper">
-      <header>
-        <div class="title">
+    <header>
+      <div class="title">
+        <%= link_to root_path do %>
           <h1>Any Coordinator</h1>
-        </div>
-
-        <!-- ヘッダー部分（右側）の新規登録・ログインボタン -->
-        <% if user_signed_in? %>
-          <div class="sign_btn">
-            <%= link_to "#" do %>
-              <p class="sign_btn__user">
-                <%= current_user.email %>
-              </p>
-            <% end %>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <p class="sign_btn__fa-sign-out-alt">
-                <i class="fas fa-sign-out-alt"></i>ログアウト
-              </p>
-            <% end %>
-          </div>
-        <% else %>
-          <div class="sign_btn">
-            <%= link_to new_user_session_path do %>
-              <p class="sign_btn__fa-user-plus">
-                <i class="fas fa-user-plus"></i>ログイン
-              </p>
-            <% end %>
-            <%= link_to new_user_registration_path do %>
-              <p class="sign_btn__fa-sign-in-alt">
-                <i class="fas fa-sign-in-alt"></i>新規登録
-              </p>
-            <% end %>
-          </div>
         <% end %>
-      </header>
-      <!-- メインメニュー -->
-      <div class="menu">
-        <%= link_to root_path, class: "menu__male" do %>
-          <p>
-            <i class="fas fa-male"></i>Men
-          </p>
-        <% end %>
-        <%= link_to root_path, class: "menu__female" do %>
-          <p>
-            <i class="fas fa-female"></i>Women
-          </p>
-        <% end %>
-        <%= link_to root_path, class: "menu__child" do %>
-          <p>
-            <i class="fas fa-child"></i>Kids
-          </p>
-        <% end %>
-        <%= link_to root_path, class: "menu__about" do %>
-          <p>
-            About
-          </p>
-        <% end %>
-        <%= link_to root_path, class: "menu__paper-plane" do %>
-          <p>
-            <i class="fas fa-paper-plane"></i>Contact
-          </p>
-        <% end %>
-
-        <div class="menu__title">
-          <p>Coordinate</p>
-        </div>
       </div>
 
-      <%= yield %>
+      <!-- ヘッダー部分（右側）の新規登録・ログインボタン -->
+      <% if user_signed_in? %>
+        <div class="sign_in-out">
+          <%= link_to root_path do %>
+            <div class="sign_in-out__btn">
+              <%= current_user.name %>
+            </div>
+          <% end %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <div class="sign_in-out__btn">
+              <i class="fas fa-sign-out-alt"></i>ログアウト
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="sign_in-out">
+          <%= link_to new_user_session_path do %>
+            <div class="sign_in-out__btn">
+              <i class="fas fa-user-plus"></i>ログイン
+            </div>
+          <% end %>
+          <%= link_to new_user_registration_path do %>
+            <div class="sign_in-out__btn">
+              <i class="fas fa-sign-in-alt"></i>新規登録
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </header>
+    <!-- メインメニュー -->
+    <div class="menu">
+      <%= link_to root_path, class: "menu__coodinate" do %>
+        <p>
+          <i class="fas fa-male"></i>Men
+        </p>
+      <% end %>
+      <%= link_to root_path, class: "menu__coodinate" do %>
+        <p>
+          <i class="fas fa-female"></i>Women
+        </p>
+      <% end %>
+      <%= link_to root_path, class: "menu__coodinate" do %>
+        <p>
+          <i class="fas fa-child"></i>Kids
+        </p>
+      <% end %>
+      <%= link_to root_path, class: "menu__guide" do %>
+        <p>
+          About
+        </p>
+      <% end %>
+      <%= link_to root_path, class: "menu__guide" do %>
+        <p>
+          <i class="fas fa-paper-plane"></i>Contact
+        </p>
+      <% end %>
+
+      <div class="menu__title">
+        <p>Coordinate</p>
+      </div>
     </div>
+
+    <%= yield %>
   </body>
 </html>

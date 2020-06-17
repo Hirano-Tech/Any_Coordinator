@@ -1,48 +1,24 @@
 @import "reset";
+@import "mixin/mixin";
 @import "modules/index";
 @import "modules/devise";
 @import "modules/register";
-
-@mixin sign_btn {
-  background-color: #fafafa;
-  width: 125px;
-  height: 30px;
-  color: #000000;
-  font-size: 1.0rem;
-  text-align: center;
-  line-height: 30px;
-  border-radius: 100px;
-  box-shadow: 0 2px #eeeeee;
-  margin-bottom: 5px;
-  &:active {
-    box-shadow: none;
-    position: relative;
-      top: 2px;
-  }
-}
-
-@mixin menu_list {
-  width: 20vw;
-  max-width: calc(1024px / 5);
-  height: 30px;
-  text-align: center;
-  line-height: 30px;
-}
 
 * {
   box-sizing: border-box;
 }
 
-.wrapper {
+body {
   width: 100vw;
   max-width: 1024px;
   font-family: "Sawarabi Mincho";
   font-size: 62.5%;
   margin: 0 auto;
-  a {text-decoration: none;}
+  a {@include LinkColor(#1a0dab);}
 }
 
 header {
+  a {@include LinkColor(#000000);}
   position: relative;
 
   .title {
@@ -52,35 +28,17 @@ header {
     line-height: 100px;
   }
 
-  .sign_btn {
+  .sign_in-out {
     position: absolute;
       right: 20px;
       bottom: 18px;
 
-    &__user {
-      @include sign_btn;
-      font-size: 100%;
-    }
+    &__btn {
+      @include sign_in-out;
 
-    &__fa-sign-out-alt {
-      @include sign_btn;
-      .fa-sign-out-alt {
-        margin-right: 5px;
-      }
-    }
-
-    &__fa-user-plus {
-      @include sign_btn;
-      .fa-user-plus {
-        margin-right: 5px;
-      }
-    }
-
-    &__fa-sign-in-alt {
-      @include sign_btn;
-      .fa-sign-in-alt {
-        margin-right: 5px;
-      }
+      .fa-user-plus {margin-right: 5px;}
+      .fa-sign-out-alt {margin-right: 5px;}
+      .fa-sign-in-alt {margin-right: 5px;}
     }
   }
 }
@@ -92,45 +50,6 @@ header {
     flex-direction: row;
   position: relative;
 
-  &__male {
-    @include menu_list;
-    margin-top: 20px;
-    .fa-male {
-      margin-right: 5px;
-    }
-  }
-
-  &__female {
-    @include menu_list;
-    margin-top: 20px;
-    .fa-female {
-      margin-right: 5px;
-    }
-  }
-
-  &__child {
-    @include menu_list;
-    margin-top: 20px;
-    .fa-child {
-      margin-right: 5px;
-    }
-  }
-
-  &__about {
-    @include menu_list;
-    height: 50px;
-    line-height: 50px;
-  }
-
-  &__paper-plane {
-    @include menu_list;
-    height: 50px;
-    line-height: 50px;
-    .fa-paper-plane {
-      margin-right: 5px;
-    }
-  }
-
   &__title {
     width: 60vw;
     max-width: calc((1024px / 5) * 3);
@@ -141,5 +60,20 @@ header {
     position: absolute;
       top: 0;
       left: 0;
+  }
+
+  &__coodinate {
+    @include Coodinate;
+    .fa-male {margin-right: 5px;}
+    .fa-female {margin-right: 5px;}
+    .fa-child {margin-right: 5px;}
+  }
+
+  &__guide {
+    @include Coodinate;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 0px;
+    .fa-paper-plane {margin-right: 5px;}
   }
 }
