@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: Any_Coordinator_production
-  username: Any_Coordinator
-  password: <%= ENV['ANY_COORDINATOR_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
