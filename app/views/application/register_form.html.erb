@@ -1,0 +1,39 @@
+<div class="eye_catch">
+  <img src="/top-image_medium.jpg" alt="Any Coordinator メイン画像">
+</div>
+
+<div class="register">
+  <h2>● Any Coordinator 新規会員登録フォーム</h2>
+
+  <%= form_with model: @user, local: true do |form| %>
+    <div class="register_form">
+      <p class="name">
+        氏名 <span class="required">※必須※</span>：<%= form.text_field :name %>
+      </p>
+      <p class="email">
+        メールアドレス <span class="required">※必須※</span>：<%= form.email_field :email %>
+      </p>
+      <p class="password">
+        パスワード <span class="required">※必須※</span>：<%= form.password_field :password %>
+      </p>
+      <p class="address">
+        住所：<%= form.text_field :address %>
+      </p>
+      <p class="phone">
+        電話番号：<%= form.telephone_field :phone %>
+      </p>
+      <p class="gender">
+        性別：<%= form.radio_button :gender, :male %> 男性，<%= form.radio_button :gender, :female %> 女性
+      </p>
+      <p class="birthday">
+        誕生日：<%= form.date_field :birthday %>
+      </p>
+      <p class="age">
+        年齢：<%= form.number_field :age %>
+      </p>
+      <p class="regist_btn">
+        <%= form.submit "新規登録" %>
+      </p>
+    </div>
+  <% end %>
+</div>

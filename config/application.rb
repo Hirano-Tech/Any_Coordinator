@@ -11,5 +11,6 @@ module AnyCoordinator
       g.test_framework false
     end
     config.load_defaults 5.2
+    config.i18n.default_locale = :ja
   end
 end

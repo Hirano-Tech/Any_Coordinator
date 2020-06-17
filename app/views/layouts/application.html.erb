@@ -6,10 +6,82 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/bf6ee95d94.js" crossorigin="anonymous"></script>
   </head>
+
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <header>
+        <div class="title">
+          <h1>Any Coordinator</h1>
+        </div>
+
+        <!-- ヘッダー部分（右側）の新規登録・ログインボタン -->
+        <% if user_signed_in? %>
+          <div class="sign_btn">
+            <%= link_to "#" do %>
+              <p class="sign_btn__user">
+                <%= current_user.email %>
+              </p>
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <p class="sign_btn__fa-sign-out-alt">
+                <i class="fas fa-sign-out-alt"></i>ログアウト
+              </p>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="sign_btn">
+            <%= link_to new_user_session_path do %>
+              <p class="sign_btn__fa-user-plus">
+                <i class="fas fa-user-plus"></i>ログイン
+              </p>
+            <% end %>
+            <%= link_to new_user_registration_path do %>
+              <p class="sign_btn__fa-sign-in-alt">
+                <i class="fas fa-sign-in-alt"></i>新規登録
+              </p>
+            <% end %>
+          </div>
+        <% end %>
+      </header>
+      <!-- メインメニュー -->
+      <div class="menu">
+        <%= link_to root_path, class: "menu__male" do %>
+          <p>
+            <i class="fas fa-male"></i>Men
+          </p>
+        <% end %>
+        <%= link_to root_path, class: "menu__female" do %>
+          <p>
+            <i class="fas fa-female"></i>Women
+          </p>
+        <% end %>
+        <%= link_to root_path, class: "menu__child" do %>
+          <p>
+            <i class="fas fa-child"></i>Kids
+          </p>
+        <% end %>
+        <%= link_to root_path, class: "menu__about" do %>
+          <p>
+            About
+          </p>
+        <% end %>
+        <%= link_to root_path, class: "menu__paper-plane" do %>
+          <p>
+            <i class="fas fa-paper-plane"></i>Contact
+          </p>
+        <% end %>
+
+        <div class="menu__title">
+          <p>Coordinate</p>
+        </div>
+      </div>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,89 +1,109 @@
-* {
-  box-sizing: border-box;
-
-  a {
-    text-decoration: none;
-  }
-}
-
-.wrapper {
-  width: 100vw;
-  max-width: 1024px;
-  font-family: "Sawarabi Mincho";
-  font-size: 62.5%;
-  margin: 0 auto;
-
-  .header {
-    position: relative;
-
-    .title {
-      background-color: lightgreen;
-      width: 100vw;
-      max-width: 1024px;
-      height: 100px;
-      display: flex;
-
-      @media (max-width: 480px) {
-        height: 50px;
-      }
-
-      h1 {
-        width: 100vw;
-        font-size: 2.0rem;
-        text-align: center;
-        line-height: 100px;
-        justify-content: flex-start;
-
-        @media (max-width: 480px) {
-          font-size: 1.2rem;
-          line-height: 50px;
-        }
-      }
-    }
-
-    .sign-btn {
-      position: absolute;
-        right: 0;
-        bottom: 0;
-
-      ul {
-        display: flex;
-      }
-
-      ul li {
-        background-color: #e2e2e2;
-        width: 100px;
-        height: 25px;
-        font-size: 1.0rem;
-        text-align: center;
-        line-height: 25px;
-        cursor: pointer;
-        justify-content: flex-start;
-      }
-    }
-  }
-}
-
-
-
-/* ul {
-  display: flex;
-}
-
-ul li {
-  background-color: #e2e2e2;
-  width: 100px;
-  height: 25px;
+@mixin sign_btn {
+  background-color: #fafafa;
+  width: 125px;
+  height: 30px;
+  color: #000000;
   font-size: 1.0rem;
   text-align: center;
-  line-height: 25px;
-  box-shadow: 0 3px #eeeeee;
-  cursor: pointer;
-  justify-content: flex-start;
-
-  :active {
+  line-height: 30px;
+  border-radius: 100px;
+  box-shadow: 0 2px #eeeeee;
+  margin-bottom: 5px;
+  &:active {
     box-shadow: none;
     position: relative;
-      top: 3px;
+      top: 2px;
   }
-} */
+}
+
+.eye_catch {
+  margin-bottom: 30px;
+  img {
+    width: 100vw;
+    max-width: 1024px;
+  }
+}
+
+.side_bar {
+  background-color: #fafafa;
+  width: calc(100% - 690px);
+  height: 500px;
+  float: left;
+
+  &__user {
+    background-color: #eeeeee;
+    width: 80%;
+    font-size: 1.0rem;
+    margin: 0 auto;
+  }
+
+  .mypage_btn {
+    @include sign_btn;
+  }
+}
+
+.content {
+  display: flex;
+    justify-content: flex-end;
+  .coodinate_box {position: relative;}
+
+  .margin_right {margin-right: 30px;}
+  .coordinator {
+    width: calc(300px * 0.7);
+    img {width: calc(300px * 0.7);}
+    p {
+      width: 106.5px;
+      color: #000000;
+      font-size: 0.8rem;
+      line-height: 15px;
+      .tall {
+        font-size: 0.7rem;
+        display: flex;
+          justify-content: flex-end;
+      }
+    }
+    &:hover {opacity: 0.9;}
+  }
+
+  .nominate {
+    background-color: #fafafa;
+    width: 60px;
+    height: 25px;
+    color: #000000;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px #eeeeee;
+    position: absolute;
+      right: 30px;
+      bottom: 3px;
+    &:active {
+      box-shadow: none;
+      position: absolute;
+        right: 30px;
+        bottom: 1px;
+    }
+  }
+
+  .nominate_right {
+    background-color: #fafafa;
+    width: 60px;
+    height: 25px;
+    color: #000000;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px #eeeeee;
+    position: absolute;
+      right: 0px;
+      bottom: 3px;
+    &:active {
+      box-shadow: none;
+      position: absolute;
+        right: 0px;
+        bottom: 1px;
+    }
+  }
+}
