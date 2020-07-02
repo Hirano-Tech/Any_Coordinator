@@ -10,24 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_070626) do
+ActiveRecord::Schema.define(version: 2020_07_02_004957) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "family_name"
+    t.string "given_name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "address"
-    t.string "phone"
-    t.string "gender"
-    t.string "birthday"
-    t.integer "age"
+    t.integer "postal_code"
+    t.string "address_level1"
+    t.string "address_level2"
+    t.string "address_leve3"
+    t.string "sex"
+    t.integer "tel_national"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["phone"], name: "index_users_on_phone", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
