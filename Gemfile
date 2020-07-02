@@ -70,6 +70,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem 'bootstrap'
+  # The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web.
+  # ウェブ上でレスポンシブ、モバイルファーストのプロジェクトを開発するための最も人気のある HTML、CSS、JavaScript フレームワークです。
+
 gem 'devise'
-gem 'devise-i18n'
-gem 'devise-i18n-views'
+  # Flexible authentication solution for Rails with Warden
+  # Warden を使った Rails 向けの柔軟な認証ソリューション
