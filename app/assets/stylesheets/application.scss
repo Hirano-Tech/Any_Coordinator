@@ -1,79 +1,31 @@
-@import "reset";
 @import "mixin/mixin";
 @import "modules/index";
 @import "modules/devise";
 @import "modules/register";
 
-* {
-  box-sizing: border-box;
-}
-
 body {
-  width: 100vw;
-  max-width: 1024px;
-  font-family: "Sawarabi Mincho";
-  font-size: 62.5%;
-  margin: 0 auto;
+  font-family: "Sawarabi Gothic";
   a {@include LinkColor(#1a0dab);}
-}
 
-header {
-  a {@include LinkColor(#000000);}
-  position: relative;
+  header {
+    img {
+      width: 150px;
+      height: 50px;
+      margin: 8px 0;
+    }
 
-  .title {
-    height: 100px;
-    font-size: 2.0rem;
-    text-align: center;
-    line-height: 100px;
-  }
-
-  .sign_in-out {
-    position: absolute;
-      right: 20px;
-      bottom: 18px;
-
-    &__btn {
-      @include sign_in-out;
+    .user_btn {
+      height: 50px;
+      padding-top: 5px;
+      margin: 8px 0;
+      float: right;
 
       .fa-user-plus {margin-right: 5px;}
       .fa-sign-out-alt {margin-right: 5px;}
       .fa-sign-in-alt {margin-right: 5px;}
     }
-  }
-}
 
-.menu {
-  height: 50px;
-  font-size: 1.0rem;
-  display: flex;
-    flex-direction: row;
-  position: relative;
-
-  &__title {
-    width: 60vw;
-    max-width: calc((1024px / 5) * 3);
-    height: 20px;
-    font-size: 0.8rem;
-    text-align: center;
-    line-height: 20px;
-    position: absolute;
-      top: 0;
-      left: 0;
-  }
-
-  &__coodinate {
-    @include Coodinate;
-    .fa-male {margin-right: 5px;}
-    .fa-female {margin-right: 5px;}
-    .fa-child {margin-right: 5px;}
-  }
-
-  &__guide {
-    @include Coodinate;
-    height: 50px;
-    line-height: 50px;
-    margin-top: 0px;
-    .fa-paper-plane {margin-right: 5px;}
+    .Navigation_Menu {
+    }
   }
 }
