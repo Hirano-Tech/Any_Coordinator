@@ -5,6 +5,7 @@
 
   &:hover, &:active, &:focus {
     color: lighten($color, 20%);
+    text-decoration: none;
   }
 }
 
@@ -24,13 +25,4 @@
     position: relative;
       top: 2px;
   }
-}
-
-@mixin Coodinate {
-  width: 20vw;
-  max-width: calc(1024px / 5);
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  margin-top: 20px;
 }
