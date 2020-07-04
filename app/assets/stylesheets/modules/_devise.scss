@@ -1,59 +1,40 @@
-.eye_catch {
+.contents {
   position: relative;
-  img {
-    width: 100vw;
-    max-width: 1024px;
-  }
 
   .login_form {
-    font-size: 0.8rem;
+    width: 30%;
     position: absolute;
-      right: 10%;
-      top: 40%;
-    .fa-envelope {margin-right: 5px;}
-    .fa-key {margin-right: 5px;}
+      right: 5%;
+      bottom: 35%;
 
-    .field {
-      margin-bottom: 10px;
+    &__input {
+      margin-bottom: 16px;
+
+      p {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+      }
+
+      &__password {
+        display: flex;
+        justify-content: space-between;
+
+        &--forgot {
+          font-size: 0.5rem;
+          align-self: flex-end;
+        }
+      }
     }
 
-    .error_message {
-      color: #ff0000;
-      font-size: 0.7rem;
-      text-align: right;
-      margin-bottom: 10px;
+    .remember {
+      font-size: 0.5rem;
+      margin: 0;
     }
 
-    .actions {
-      text-align: right;
+    &__btn {
+      font-size: 0.8rem;
+      height: 25px;
+      padding: 0;
     }
-  }
-}
-
-.regist_form {
-  background-color: #fafafa;
-  width: 690px;
-  height: 500px;
-  font-size: 0.8rem;
-  margin: 30px 0 0 auto;
-
-  h2 {
-    width: 100%;
-    height: 2.0em;
-    font-size: 1.0rem;
-    font-weight: bold;
-    line-height: 2.0em;
-    padding-left:1.0em;
-    border-left: solid 5px #b0b0b0;
-    border-bottom: solid 1px #d0d0d0;
-    display: inline-block;
-  }
-
-  .field {
-    margin: 30px 0 0 45px;
-  }
-
-  .actions {
-    margin: 30px 0 0 45px;
   }
 }
