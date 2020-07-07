@@ -1,49 +1,49 @@
-<div class="eye_catch">
-  <img src="/top-image_medium.jpg" alt="Any Coordinator メイン画像">
+<div class="contents">
+  <%= image_tag '/top-image_medium.jpg', class: 'img-fluid' %>
 </div>
 
-<div class="regist_form">
-  <h2>● Any Coordinator 新規会員登録フォーム</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <p class="user_title"><i class="fas fa-user"></i>会員登録はお済みですか？</p>
+      <div class="user_btn">
+        <% if user_signed_in? %>
+          <%= link_to edit_user_registration_path do %>
+            <button type="button" class="btn btn-outline-dark user_btn__left">マイページ</button>
+          <% end %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <button type="button" class="btn btn-outline-dark"><i class="fas fa-sign-out-alt"></i>ログアウト</button>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path do %>
+            <button type="button" class="btn btn-outline-dark user_btn__left"><i class="fas fa-user-plus"></i>ログイン</button>
+          <% end %>
+          <%= link_to new_user_registration_path do %>
+            <button type="button" class="btn btn-outline-dark"><i class="fas fa-sign-in-alt"></i>新規登録</button>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
-  <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-    <%= devise_error_messages! %>
-
-    <div class="field">
-      <%= f.label :name, "氏名：" %>
-      <%= f.text_field :name %>
+    <div class="col-sm-9">
+      <h2><i class="fas fa-sign-in-alt"></i>Any Coordinator 新規登録フォーム</h2>
+      <div class="regist_form">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
+          <div class="regist_form__input">
+            <p>● 氏名</p>
+            <div class="regist_form__input__input-name">
+              <%= form.text_field :family_name, class: "form-control regist_form__input__input-name--half", placeholder: "氏名（姓）", autocomplete: "family-name" %>
+              <%= form.text_field :given_name, class: "form-control regist_form__input__input-name--half", placeholder: "氏名（名）", autocomplete: "given-name" %>
+            </div>
+          </div>
+          <div class="regist_form__input">
+            <p>● メールアドレス</p>
+              <%= form.email_field :email, class: "form-control", placeholder: "メールアドレス", autocomplete: "email" %>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :email, "E-Mail：" %>
-      <%= f.email_field :email %>
-    </div>
-    <div class="field">
-      <%= f.label :password, "パスワード：" %>
-      <%= f.password_field :password %>
-    </div>
-    <div class="field">
-      <%= f.label :address, "住所：" %>
-      <%= f.text_field :address %>
-    </div>
-    <div class="field">
-      <%= f.label :phone, "電話番号：" %>
-      <%= f.text_field :phone %>
-    </div>
-    <div class="field">
-      <%= f.label :gender, "性別：" %>
-      <%= f.radio_button :gender, :male %> 男性，<%= f.radio_button :gender, :female %> 女性
-    </div>
-    <div class="field">
-      <%= f.label :birthday, "誕生日：" %>
-      <%= f.date_field :birthday %>
-    </div>
-    <div class="field">
-      <%= f.label :age, "年齢：" %>
-      <%= f.number_field :age %>
-    </div>
-    <div class="actions">
-      <%= f.submit "登録する" %>
-    </div>
-  <% end %>
+  </div>
 </div>
 
 
@@ -53,7 +53,16 @@
 
 
 
-<!--
+
+
+
+
+
+
+
+
+
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -83,4 +92,3 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
--->

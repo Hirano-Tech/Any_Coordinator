@@ -1,5 +1,5 @@
-<div class="eye_catch">
-  <img src="/top-image_medium.jpg" alt="Any Coordinator メイン画像">
+<div class="contents">
+  <%= image_tag '/top-image_medium.jpg', class: 'img-fluid' %>
 
   <div class="login_form">
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>

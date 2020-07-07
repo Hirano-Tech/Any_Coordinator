@@ -52,4 +52,7 @@ production:
   database: Any_Coordinator_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+  socket: postgres://rwkhvbzfktwtnt:b5e80e987cb1a4df598a497f3727296fd6e4f3117b99aa79d6f4ba5f996b510e@ec2-34-197-188-147.compute-1.amazonaws.com:5432/d7dpqvdj5h0641
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
