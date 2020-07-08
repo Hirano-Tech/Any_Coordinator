@@ -1,58 +1,63 @@
-<%= image_tag '/top-image_medium.jpg', class: 'img-fluid' %>
+<%= image_tag '/assets/eye-catch_medium.jpg', class: 'img-fluid' %>
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-3">
-      <p class="user_title"><i class="fas fa-user"></i>会員登録はお済みですか？</p>
-      <div class="user_btn">
-        <% if user_signed_in? %>
-          <%= link_to edit_user_registration_path do %>
-            <button type="button" class="btn btn-outline-dark user_btn__left">マイページ</button>
+    <div class="col-sm-3 Side-Bar">
+      <div class="Side-Bar__Login">
+        <p class="Side-Bar__Login--Title">
+          <i class="fas fa-user"></i>会員登録はお済みですか？
+        </p>
+
+        <div class="Side-Bar__Login--Btn">
+          <% if user_signed_in? %>
+            <%= link_to edit_user_registration_path do %>
+              <button type="button" class="btn btn-outline-dark">マイページ</button>
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <button type="button" class="btn btn-outline-dark"><i class="fas fa-sign-out-alt"></i>ログアウト</button>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_session_path do %>
+              <button type="button" class="btn btn-outline-dark"><i class="fas fa-user-plus"></i>ログイン</button>
+            <% end %>
+            <%= link_to new_user_registration_path do %>
+              <button type="button" class="btn btn-outline-dark"><i class="fas fa-sign-in-alt"></i>新規登録</button>
+            <% end %>
           <% end %>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-            <button type="button" class="btn btn-outline-dark"><i class="fas fa-sign-out-alt"></i>ログアウト</button>
-          <% end %>
-        <% else %>
-          <%= link_to new_user_session_path do %>
-            <button type="button" class="btn btn-outline-dark user_btn__left"><i class="fas fa-user-plus"></i>ログイン</button>
-          <% end %>
-          <%= link_to new_user_registration_path do %>
-            <button type="button" class="btn btn-outline-dark"><i class="fas fa-sign-in-alt"></i>新規登録</button>
-          <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
 
-    <div class="col-sm-9">
+    <div class="col-sm-9 Contents">
       <h2><i class="fas fa-female"></i>Women Stylist</h2>
-      <div id="coodinators">
-        <div class="coodinator">
-          <%= image_tag '/WEAR_Maru_moz.jpg', class: 'img-thumbnail' %><br>
-          <div class="coodinator__btn">
+      <div class="Contents__Coodinators">
+        <div class="Contents__Coodinators__Post">
+          <%= image_tag '/assets/maru.jpg', class: 'Contents__Coodinators__Post--img' %><br>
+          <div class="Contents__Coodinators__Post--Btn">
             <%= link_to root_path do %>
-              <button type="button" class="btn btn-outline-dark coodinator__btn--left">詳細</button>
+              <button type="button" class="btn btn-outline-dark Contents__Coodinators__Post--Btn--left">詳細</button>
             <% end %>
             <%= link_to root_path do %>
               <button type="button" class="btn btn-outline-dark">予約</button>
             <% end %>
           </div>
         </div>
-        <div class="coodinator">
-          <%= image_tag '/WEAR_anmi_moz.jpg', class: 'img-thumbnail' %><br>
-          <div class="coodinator__btn">
+        <div class="Contents__Coodinators__Post">
+          <%= image_tag '/assets/anmi.jpg', class: 'Contents__Coodinators__Post--img' %><br>
+          <div class="Contents__Coodinators__Post--Btn">
             <%= link_to root_path do %>
-              <button type="button" class="btn btn-outline-dark coodinator__btn--left">詳細</button>
+              <button type="button" class="btn btn-outline-dark Contents__Coodinators__Post--Btn--left">詳細</button>
             <% end %>
             <%= link_to root_path do %>
               <button type="button" class="btn btn-outline-dark">予約</button>
             <% end %>
           </div>
         </div>
-        <div class="coodinator">
-          <%= image_tag '/WEAR_Vicente_moz.jpg', class: 'img-thumbnail' %><br>
-          <div class="coodinator__btn">
+        <div class="Contents__Coodinators__Post">
+          <%= image_tag '/assets/vicente.jpg', class: 'Contents__Coodinators__Post--img' %><br>
+          <div class="Contents__Coodinators__Post--Btn">
             <%= link_to root_path do %>
-              <button type="button" class="btn btn-outline-dark coodinator__btn--left">詳細</button>
+              <button type="button" class="btn btn-outline-dark Contents__Coodinators__Post--Btn--left">詳細</button>
             <% end %>
             <%= link_to root_path do %>
               <button type="button" class="btn btn-outline-dark">予約</button>
@@ -62,34 +67,34 @@
       </div>
 
       <h2><i class="fas fa-male"></i>Men Stylist</h2>
-      <div id="coodinators">
-        <div class="coodinator">
-          <%= image_tag '/WEAR_Genji_moz.jpg', class: 'img-thumbnail' %><br>
-          <div class="coodinator__btn">
+      <div class="Contents__Coodinators">
+        <div class="Contents__Coodinators__Post">
+          <%= image_tag '/assets/genji.jpg', class: 'Contents__Coodinators__Post--img' %><br>
+          <div class="Contents__Coodinators__Post--Btn">
             <%= link_to root_path do %>
-              <button type="button" class="btn btn-outline-dark coodinator__btn--left">詳細</button>
+              <button type="button" class="btn btn-outline-dark Contents__Coodinators__Post--Btn--left">詳細</button>
             <% end %>
             <%= link_to root_path do %>
               <button type="button" class="btn btn-outline-dark">予約</button>
             <% end %>
           </div>
         </div>
-        <div class="coodinator">
-          <%= image_tag '/WEAR_Kose_moz.jpg', class: 'img-thumbnail' %><br>
-          <div class="coodinator__btn">
+        <div class="Contents__Coodinators__Post">
+          <%= image_tag '/assets/kose.jpg', class: 'Contents__Coodinators__Post--img' %><br>
+          <div class="Contents__Coodinators__Post--Btn">
             <%= link_to root_path do %>
-              <button type="button" class="btn btn-outline-dark coodinator__btn--left">詳細</button>
+              <button type="button" class="btn btn-outline-dark Contents__Coodinators__Post--Btn--left">詳細</button>
             <% end %>
             <%= link_to root_path do %>
               <button type="button" class="btn btn-outline-dark">予約</button>
             <% end %>
           </div>
         </div>
-        <div class="coodinator">
-          <%= image_tag '/WEAR_G_moz.jpg', class: 'img-thumbnail' %><br>
-          <div class="coodinator__btn">
+        <div class="Contents__Coodinators__Post">
+          <%= image_tag '/assets/g.jpg', class: 'Contents__Coodinators__Post--img' %><br>
+          <div class="Contents__Coodinators__Post--Btn">
             <%= link_to root_path do %>
-              <button type="button" class="btn btn-outline-dark coodinator__btn--left">詳細</button>
+              <button type="button" class="btn btn-outline-dark Contents__Coodinators__Post--Btn--left">詳細</button>
             <% end %>
             <%= link_to root_path do %>
               <button type="button" class="btn btn-outline-dark">予約</button>

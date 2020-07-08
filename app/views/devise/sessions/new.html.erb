@@ -1,24 +1,137 @@
-<div class="contents">
-  <%= image_tag '/top-image_medium.jpg', class: 'img-fluid' %>
+<div class="Login">
+  <%= image_tag '/assets/eye-catch_medium.jpg', class: 'img-fluid' %>
 
-  <div class="login_form">
-    <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-      <div class="field">
-        <i class="fas fa-envelope"></i>
-        <%= f.label :email, "E-Mail：" %>
-        <%= f.email_field :email, autofocus: true %>
+  <div class="Login__Form">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+      <div class="Login__Form__Input">
+        <p>
+          <i class="fas fa-envelope"></i> E-Mail
+        </p>
+        <%= form.email_field :email, class: "form-control", placeholder: "メールアドレス", autofocus: true, autocomplete: "email" %>
+        <small class="form-text text-muted">登録したメールアドレスを入力して下さい。</small>
       </div>
-      <div class="field">
-        <i class="fas fa-key"></i>
-        <%= f.label :password, "パスワード：" %>
-        <%= f.password_field :password %>
+      <div class="Login__Form__Input">
+        <p>
+          <i class="fas fa-key"></i> パスワード
+        </p>
+        <%= form.password_field :password, class: "form-control", placeholder: "パスワード" %>
+        <div class="Login__Form__Input__Password">
+          <small class="form-text text-muted">パスワードを入力して下さい。</small>
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name), class: 'Login__Form__Input__Password--Forgot' %>
+          <% end %>
+        </div>
       </div>
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: "error_message" %>
-      <% end %>
-      <div class="actions">
-        <%= f.submit "ログイン" %>
-      </div>
+      <p class="remember">
+        <%= form.check_box :remember_me %> ログインを記録する
+      </p>
+      <%= form.submit "ログイン", class: "btn btn-outline-primary btn-block login_form__btn" %>
     <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 Side-Bar">
+      <div class="Side-Bar__Login">
+        <p class="Side-Bar__Login--Title">
+          <i class="fas fa-user"></i>会員登録はお済みですか？
+        </p>
+
+        <div class="Side-Bar__Login--Btn">
+          <% if user_signed_in? %>
+            <%= link_to edit_user_registration_path do %>
+              <button type="button" class="btn btn-outline-dark">マイページ</button>
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <button type="button" class="btn btn-outline-dark"><i class="fas fa-sign-out-alt"></i>ログアウト</button>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_session_path do %>
+              <button type="button" class="btn btn-outline-dark"><i class="fas fa-user-plus"></i>ログイン</button>
+            <% end %>
+            <%= link_to new_user_registration_path do %>
+              <button type="button" class="btn btn-outline-dark"><i class="fas fa-sign-in-alt"></i>新規登録</button>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-9 Contents">
+      <h2><i class="fas fa-female"></i>Women Stylist</h2>
+      <div class="Contents__Coodinators">
+        <div class="Contents__Coodinators__Post">
+          <%= image_tag '/assets/maru.jpg', class: 'Contents__Coodinators__Post--img' %><br>
+          <div class="Contents__Coodinators__Post--Btn">
+            <%= link_to root_path do %>
+              <button type="button" class="btn btn-outline-dark Contents__Coodinators__Post--Btn--left">詳細</button>
+            <% end %>
+            <%= link_to root_path do %>
+              <button type="button" class="btn btn-outline-dark">予約</button>
+            <% end %>
+          </div>
+        </div>
+        <div class="Contents__Coodinators__Post">
+          <%= image_tag '/assets/anmi.jpg', class: 'Contents__Coodinators__Post--img' %><br>
+          <div class="Contents__Coodinators__Post--Btn">
+            <%= link_to root_path do %>
+              <button type="button" class="btn btn-outline-dark Contents__Coodinators__Post--Btn--left">詳細</button>
+            <% end %>
+            <%= link_to root_path do %>
+              <button type="button" class="btn btn-outline-dark">予約</button>
+            <% end %>
+          </div>
+        </div>
+        <div class="Contents__Coodinators__Post">
+          <%= image_tag '/assets/vicente.jpg', class: 'Contents__Coodinators__Post--img' %><br>
+          <div class="Contents__Coodinators__Post--Btn">
+            <%= link_to root_path do %>
+              <button type="button" class="btn btn-outline-dark Contents__Coodinators__Post--Btn--left">詳細</button>
+            <% end %>
+            <%= link_to root_path do %>
+              <button type="button" class="btn btn-outline-dark">予約</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <h2><i class="fas fa-male"></i>Men Stylist</h2>
+      <div class="Contents__Coodinators">
+        <div class="Contents__Coodinators__Post">
+          <%= image_tag '/assets/genji.jpg', class: 'Contents__Coodinators__Post--img' %><br>
+          <div class="Contents__Coodinators__Post--Btn">
+            <%= link_to root_path do %>
+              <button type="button" class="btn btn-outline-dark Contents__Coodinators__Post--Btn--left">詳細</button>
+            <% end %>
+            <%= link_to root_path do %>
+              <button type="button" class="btn btn-outline-dark">予約</button>
+            <% end %>
+          </div>
+        </div>
+        <div class="Contents__Coodinators__Post">
+          <%= image_tag '/assets/kose.jpg', class: 'Contents__Coodinators__Post--img' %><br>
+          <div class="Contents__Coodinators__Post--Btn">
+            <%= link_to root_path do %>
+              <button type="button" class="btn btn-outline-dark Contents__Coodinators__Post--Btn--left">詳細</button>
+            <% end %>
+            <%= link_to root_path do %>
+              <button type="button" class="btn btn-outline-dark">予約</button>
+            <% end %>
+          </div>
+        </div>
+        <div class="Contents__Coodinators__Post">
+          <%= image_tag '/assets/g.jpg', class: 'Contents__Coodinators__Post--img' %><br>
+          <div class="Contents__Coodinators__Post--Btn">
+            <%= link_to root_path do %>
+              <button type="button" class="btn btn-outline-dark Contents__Coodinators__Post--Btn--left">詳細</button>
+            <% end %>
+            <%= link_to root_path do %>
+              <button type="button" class="btn btn-outline-dark">予約</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

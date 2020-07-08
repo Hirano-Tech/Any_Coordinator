@@ -1,39 +1,37 @@
 .container {
   margin-top: 32px;
 
-  .col-sm-3 {
-    .user_title {
-      width: 100%;
-      font-size: 0.9rem;
-      border-left: solid 5px #f4f4f4;
-      border-bottom: solid 1px #f4f4f4;
-      padding-bottom: 4px;
-      margin: 0 auto 5px;
-      .fa-user {margin: 0 0.5em;}
-    }
-
-    .user_btn {
-      width: 70%;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-
-      &__left {
-        
+  .Side-Bar {
+    &__Login {
+      &--Title {
+        width: 100%;
+        font-size: 0.9rem;
+        border-left: solid 5px #f4f4f4;
+        border-bottom: solid 1px #f4f4f4;
+        padding-bottom: 4px;
+        margin: 0 auto 5px;
+        .fa-user {margin: 0 0.5em;}
       }
 
-      button {
-        font-size: 0.8rem;
-        padding: 3px 5px;
-      }
+      &--Btn {
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
 
-      .fa-user-plus {margin-right: 5px;}
-      .fa-sign-out-alt {margin-right: 5px;}
-      .fa-sign-in-alt {margin-right: 5px;}
+        button {
+          font-size: 0.8rem;
+          padding: 3px 5px;
+        }
+
+        .fa-user-plus {margin-right: 5px;}
+        .fa-sign-out-alt {margin-right: 5px;}
+        .fa-sign-in-alt {margin-right: 5px;}
+      }
     }
   }
 
-  .col-sm-9 {
+  .Contents {
     h2 {
       width: 90%;
       font-size: 1.5rem;
@@ -49,18 +47,18 @@
       .fa-sign-in-alt {margin: 0 0.5em;}
     }
 
-    #coodinators {
+    &__Coodinators {
       width: 80%;
       margin: 0 auto 48px;
       display: flex;
       justify-content: space-between;
 
-      .coodinator {
-        .img-thumbnail {
+      &__Post {
+        &--img {
           width: 200px;
         }
 
-        &__btn {
+        &--Btn {
           display: flex;
           justify-content: flex-end;
 
