@@ -18,7 +18,8 @@
         <div class="Login__Form__Input__Password">
           <small class="form-text text-muted">パスワードを入力して下さい。</small>
           <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-            <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name), class: 'Login__Form__Input__Password--Forgot' %>
+            <%= link_to "パスワードを忘れた方はこちら", root_path, class: 'Login__Form__Input__Password--Forgot' %>
+            <!-- <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name), class: 'Login__Form__Input__Password--Forgot' %> -->
           <% end %>
         </div>
       </div>
